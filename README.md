@@ -12,3 +12,15 @@ In two simple lines of java, you can create the base for your interface, doing a
 Layout layout = new Layout();
 PortListener server = new PortListener(80, layout.generateDashboard("Notelek Connect"));
 ```
+
+This example creates the basic page below:
+![Notelek Connect Demo Page](http://i.imgur.com/nusC9yN.png)
+
+Where more granular control is required, you can begin to use the deeper functions of connect. Below is the same example as above, but in exapanded form.
+
+```Java
+PageBuilder page = new PageBuilder();
+		page.addNavbar(title, new String[] {"Dashboard", "Logs", "Settings"});
+		page.addContent("<div style=\"font-size:32pt;text-align:center;width:500px;position:absolute;top:30%;left:50%;margin-left:-250px;\">Dashboard Demo</div>");
+		String pageContent = page.getPage(title);
+```
