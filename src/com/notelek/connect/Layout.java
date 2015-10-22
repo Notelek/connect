@@ -1,11 +1,11 @@
 package com.notelek.connect;
 
 public class Layout {
-	
+
 	public Layout(){
-		
+
 	}
-	
+
 	public String generateDashboard(String title){
 		PageBuilder page = new PageBuilder();
 		page.addNavbar(title, new String[] {"Dashboard", "Logs", "Settings"});
@@ -13,5 +13,9 @@ public class Layout {
 		String pageContent = page.getPage(title);
 		return pageContent;
 	}
-	
+
+	public String addAlert(String alert, String type){
+		return "<div class=\"alert alert-"+type+"\" role=\"alert\">"+alert+"</div>";
+	}
+
 }
