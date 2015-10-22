@@ -18,4 +18,8 @@ public class Layout {
 		return "<div class=\"alert alert-"+type+"\" role=\"alert\">"+alert+"</div>";
 	}
 
+	public String addGlyphcon(String name){
+		return "<span class=\"glyphicon glyphicon-"+name+"\" aria-hidden=\"true\"></span>";
+	}
+
 }
