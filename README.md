@@ -13,14 +13,16 @@ Creating an interface can be a challenging aspect of program design, and take up
 In two simple lines of java, you can create the base for your interface, doing away with the hassle of setting up a web server, linking imports, and referencing documentation.
 
 ```Java
+WebInterface WebInterface = new WebInterface();
 Layout layout = new Layout();
-PortListener server = new PortListener(80, layout.generateDashboard("Notelek Connect"));
+WebInterface.registerPage("/", layout.generateDashboard("Notelek Connect"));
+PortListener server = new PortListener(80, WebInterface, true);
 ```
 
 This example creates the basic page below:
 ![Connect Demo Page](http://i.imgur.com/nusC9yN.png)
 
-Where more granular control is required, you can begin to use the deeper functions of connect. Below is the same example as above, but in expanded form.
+Where more granular control is required, you can begin to use the deeper functions of connect. Below is the same layout as above, but in expanded form.
 
 ```Java
 PageBuilder page = new PageBuilder();
