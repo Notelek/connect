@@ -11,7 +11,7 @@ public class PortListener
     private static final int fNumberOfThreads = 100;
     private static final Executor fThreadPool = Executors.newFixedThreadPool(fNumberOfThreads);
  
-    public PortListener(int port, final WebInterface intFace) throws Exception{
+    public PortListener(int port, final WebInterface intFace, boolean acceptOutsideReq) throws Exception{
         @SuppressWarnings("resource")
 		ServerSocket socket = new ServerSocket(port);
         socket.setReuseAddress(true);
@@ -23,7 +23,16 @@ public class PortListener
                 @Override
                 public void run()
                 {
-                    Handler.HandleRequest(connection, intFace);
+                	String webServerAddress = connection.getInetAddress().toString();
+                	if(acceptOutsideReq){
+                		Handler.HandleRequest(connection, intFace);
+                	}else{
+                		if(webServerAddress == "/0:0:0:0:0:0:0:1"){
+                			Handler.HandleRequest(connection, intFace);
+                		}else{
+                			Log.info("Blocked Connection From: "+webServerAddress);
+                		}
+                	}
                 }
             };
             fThreadPool.execute(task);

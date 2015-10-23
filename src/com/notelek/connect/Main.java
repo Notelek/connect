@@ -8,7 +8,7 @@ public class Main {
 			WebInterface inf = new WebInterface();
 			Layout layout = new Layout();
 			inf.registerPage("/", layout.generateDashboard("Notelek Connect"));
-			PortListener server = new PortListener(80, inf);
+			PortListener server = new PortListener(80, inf, true);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
