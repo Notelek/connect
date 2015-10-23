@@ -5,10 +5,10 @@ public class Main {
 	
 	public static void main(String[] args){
 		try {
-			WebInterface inf = new WebInterface();
+			WebInterface WebInterface = new WebInterface();
 			Layout layout = new Layout();
-			inf.registerPage("/", layout.generateDashboard("Notelek Connect"));
-			PortListener server = new PortListener(80, inf);
+			WebInterface.registerPage("/", layout.generateDashboard("Notelek Connect"));
+			PortListener server = new PortListener(80, WebInterface, true);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
