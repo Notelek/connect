@@ -1,4 +1,4 @@
-![Logo](http://i.imgur.com/vZaUeup.png)
+![Logo](http://i.imgur.com/roGkJs5.png)
 
 [![Join the chat at https://gitter.im/Notelek/connect](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Notelek/connect?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/Notelek/connect.svg)](https://travis-ci.org/Notelek/connect)
