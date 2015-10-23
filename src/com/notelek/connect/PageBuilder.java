@@ -1,7 +1,7 @@
 package com.notelek.connect;
 
 public class PageBuilder {
-	
+
 	private String html = null;
 	private String leftLayout = null;
 	private String rightLayout = null;
@@ -12,11 +12,11 @@ public class PageBuilder {
 	private boolean layoutAdded = false;
 	private boolean leftDisabled = true;
 	private boolean rightDisabled = true;
-	
+
 	public PageBuilder(){
-		
+
 	}
-	
+
 	public boolean addNavbar(String title, String[] items){
 		if(!navAdded){
 			String navElement = "<nav class=\"navbar navbar-inverse navbar-fixed-top\">"+
@@ -37,7 +37,7 @@ public class PageBuilder {
 			return false;
 		}
 	}
-	
+
 	public boolean addLayout(int right, int left){
 		String rightDivEnd = "";
 		@SuppressWarnings("unused")
@@ -75,7 +75,7 @@ public class PageBuilder {
 			return false;
 		}
 	}
-	
+
 	public boolean addLeftContent(String c){
 		if(leftDisabled){
 			return false;
@@ -83,11 +83,11 @@ public class PageBuilder {
 		leftContent = c;
 		return true;
 	}
-	
+
 	public String addButton(String type, String text, String name){
 		return "<button type=\"button\" class=\"btn btn-"+type+" "+name+"\">"+text+"</button>";
 	}
-	
+
 	public boolean addRightContent(String c){
 		if(rightDisabled){
 			return false;
@@ -95,12 +95,12 @@ public class PageBuilder {
 		rightContent = c;
 		return true;
 	}
-	
+
 	public boolean addContent(String c){
 		content = c;
 		return true;
 	}
-	
+
 	public String addAlert(String alert, String type){
 		return "<div class=\"alert alert-"+type+"\" role=\"alert\">"+alert+"</div>";
 	}
@@ -108,7 +108,7 @@ public class PageBuilder {
 	public String addGlyphcon(String name){
 		return "<span class=\"glyphicon glyphicon-"+name+"\" aria-hidden=\"true\"></span>";
 	}
-	
+
 
 	public String getPage(String title){
 		if(layoutAdded){
@@ -150,5 +150,5 @@ public class PageBuilder {
 		}
 		return page;
 	}
-	
+
 }
