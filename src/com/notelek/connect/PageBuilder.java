@@ -109,6 +109,20 @@ public class PageBuilder {
 		return "<div class=\"well\">"+wellContent+"</div>";
 	}
 
+	public String addText(String type, String text){
+		if(type == "default"){
+			return "<p>"+text+"</div>";
+		}
+		if(type == "lead"){
+			return "<p class=\"lead\">"+text+"</div>";
+		}
+		return "";
+	}
+
+	public String addHeading(String size, String text){
+		return "<h"+size+">"+text+"</h"+size+">";
+	}
+
 	public String addGlyphcon(String name){
 		return "<span class=\"glyphicon glyphicon-"+name+"\" aria-hidden=\"true\"></span>";
 	}
