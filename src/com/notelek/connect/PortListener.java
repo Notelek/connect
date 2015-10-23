@@ -11,7 +11,7 @@ public class PortListener
     private static final int fNumberOfThreads = 100;
     private static final Executor fThreadPool = Executors.newFixedThreadPool(fNumberOfThreads);
  
-    public PortListener(int port, String response) throws Exception{
+    public PortListener(int port, WebInterface intFace) throws Exception{
         @SuppressWarnings("resource")
 		ServerSocket socket = new ServerSocket(port);
         socket.setReuseAddress(true);
@@ -23,7 +23,7 @@ public class PortListener
                 @Override
                 public void run()
                 {
-                    Handler.HandleRequest(connection, response);
+                    Handler.HandleRequest(connection, intFace);
                 }
             };
             fThreadPool.execute(task);
