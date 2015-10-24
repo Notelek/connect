@@ -28,7 +28,10 @@ public class Handler {
         	out.println("HTTP/4.0 200");
             out.println("Content-type: text/html");
             out.println("Server-name: NotelekConnectServer");
-            out.println("Content-length: " + intFace.resolvePage(request.split(" ")[1]).length());
+            try{
+                out.println("Content-length: " + intFace.resolvePage(request.split(" ")[1]).length());
+            }catch(Exception e){
+            }
             out.println("");
             out.println(intFace.resolvePage(request.split(" ")[1]));
             out.flush();

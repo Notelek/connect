@@ -1,0 +1,37 @@
+<project name="NotelekConnect" basedir="." default="main">
+    <property name="dir.src"     value="src"/>
+    <property name="dir.bianaries"   value="bianaries"/>
+    <property name="dir.bin" value="classes"/>
+    <property name="dir.www"     value="www"/>
+
+    <property name="main-class"  value="com.notelek.connect"/>
+
+    <target name="clean">
+        <delete dir="${dir.build}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${dir.classes}"/>
+        <javac srcdir="${dir.src}" destdir="${dir.classes}"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${dir.jar}"/>
+        <jar destfile="${dir.jar}/${ant.project.name}.jar" basedir="${dir.classes}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="${dir.jar}/${ant.project.name}.jar" fork="true"/>
+    </target>
+
+    <target name="test" depends="jar">
+        <java jar="${dir.jar}/${ant.project.name}.jar" fork="true"/>
+    </target>
+
+    <target name="clean-build" depends="clean,jar"/>
+    <target name="main" depends="clean,run"/>
+</project>

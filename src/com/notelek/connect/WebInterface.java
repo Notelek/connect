@@ -22,6 +22,8 @@ public class WebInterface {
 		for (int i=0;i<path.size();i++) {
 			if(path.contains(loc)){
 				return (String) content.toArray()[i];
+			}else{
+				Log.info("Client response: 404");
 			}
         }
 		return "";
